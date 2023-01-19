@@ -1,0 +1,144 @@
+/* font-family: 'Inter', sans-serif;
+font-family: 'Lexend Deca', sans-serif;*/
+
+/* 这个功能可以看看学一学 <picture>
+           <source media="(min-width:650px)" srcset="./images/image-header-desktop.jpg">
+           <img src="./images/image-header-mobile.jpg">
+        </picture>*/
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Inter:wght@400;700&family=Merriweather&family=Montserrat:wght@400;500;700&family=Outfit:wght@300;400;600&family=Overpass:wght@400;700&family=Red+Hat+Display:wght@500;700;900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Inter:wght@400;700&family=Lexend+Deca&family=Merriweather&family=Montserrat:wght@400;500;700&family=Outfit:wght@300;400;600&family=Overpass:wght@400;700&display=swap');
+
+
+
+:root{
+--Very-dark-blue: hsl(233, 47%, 7%);
+--Dark-desaturated-blue: hsl(244, 38%, 16%);
+--Soft-violet-accent: hsl(277, 64%, 61%);
+--White:hsl(0, 0%, 100%);
+--Slightly-transparent-white: hsl(0, 0%, 100%, 0.75);
+--Slightly-transparent-white:hsl(0, 0%, 100%, 0.6);
+
+}
+
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--Very-dark-blue);
+    font-family: 'Inter', sans-serif; 
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    
+}
+
+.container{
+    
+   
+    max-width:1050px ;
+    margin: 0 auto;   /*用max-width 当屏幕缩小的时候，你的div会跟着自行调整，不要用div。参考这个
+    https://www.w3schools.com/css/css_max-width.asp*/
+
+ }
+
+ .wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 20px;
+    background-color:  var(--Dark-desaturated-blue);
+    overflow: hidden; /* 这一步修正了图片超出了范围*/
+    margin:2rem; /*这一步就是当屏幕缩小以后，这个wrapper旁边还会有空隙而不是完全占完屏幕边缘*/
+ }
+
+ .image-box {
+    position: relative;
+ }
+
+ .image-box::after{
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top:0;
+    background-color: var(--Soft-violet-accent);
+    opacity: 0.5;
+ }
+
+ .image-box img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /*图片会填满整个自己的div*/
+ }
+
+p{
+    font-size: 15px;
+    line-height: 1.5;
+    color: hsla(0, 0%, 100%, 0.6);
+}
+
+
+.text-box{
+   padding: 15%;
+}
+
+h1, h3{
+    color: white;
+}
+
+.text-box h1{
+    padding-bottom: 20px;
+}
+.stats-box{
+    display: flex;
+    align-items: center;
+    padding-top: 50px;
+    justify-content: space-between;
+    text-transform: uppercase;
+
+}
+
+@media screen and (max-width: 425px) {
+    body{
+        text-align: center;
+    }
+    .wrapper{
+        grid-template-columns: 1fr;
+    }
+    .image-box{
+        order:-1
+    }
+    
+    .text-box{
+        padding: 12% 8%;
+    }
+    p{
+        
+        line-height: 1.4;
+    }
+    .stats-box{
+        flex-direction: column;
+        padding-top:30px;
+    }
+
+
+ }
+ 
+
+
+
+
+
+
+
+   
+
+
+.attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+ 
